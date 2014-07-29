@@ -1,0 +1,18 @@
+<section class="follow-list-page" ng-model="followList" ng-controller="FollowListCtrl">
+	<h3 class="title">
+		<a href="#/users/{{username}}">{{username}}</a>
+		<span>'s {{followType}}</span>
+	</h3>
+	<ul ng-if="!!followList[0]">
+		<li ng-repeat="item in followList">
+			<a ng-href="#/users/{{item.login}}">
+				<figure class="avatar">
+					<img ng-src="{{item.avatar_url}}" alt="{{item.login}}">
+				</figure>
+				<span>{{item.login}}</span>
+			</a>
+		</li>
+	</ul>
+	<no-record item-type="{{followType}}" ng-if="!!!followList[0]"></no-record>
+</section>
+<go-home></go-home>

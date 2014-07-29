@@ -1,0 +1,48 @@
+<article class="repo-page">
+	<section class="card" ng-model="repo" ng-controller='RepoCtrl' >
+		<div class="info">
+			<h3>
+				<a ng-href="{{repo.html_url}}" target="_blank">
+					{{repo.full_name}}
+				</a>
+			</h3>
+			<span>created at:</span><time>{{repo.created_at|date: ' MMM d, yyyy'}}</time>
+			<blockquote>{{repo.description}}</blockquote>
+			<table>
+				<tr>
+					<td>language:</td>
+					<td ng-init="none"><code>{{repo.language}}</code></td>
+				</tr>
+				<tr>
+					<td><i class="fa fa-star"></i></td>
+					<td>{{repo.stargazers_count}}</td>
+				</tr>
+				<tr>
+					<td><i class="fa fa-code-fork"></i></td>
+					<td>{{repo.forks_count}}</td>
+				</tr>
+				<tr>
+					<td><i class="fa fa-eye"></i></td>
+					<td>{{repo.watchers_count}}</td>
+				</tr>
+				<tr>
+					<td>git url:</td>
+					<td>{{repo.git_url}}</td>
+				</tr>
+				<tr>
+					<td>SSH url:</td>
+					<td>{{repo.ssh_url}}</td>
+				</tr>
+			</table>
+		</div>
+		<div class="related" ng-model="owner">
+			<figure>
+				<a class="avatar" ng-href="#/users/{{owner.login}}" title="{{owner.login}}">
+					<img ng-src="{{owner.avatar_url}}">
+					<h4>{{owner.login}}</h4>
+				</a>
+			</figure>
+		</div>
+	</section>
+	<a class="go-home" ng-href="#/">back to home</a>
+</article>

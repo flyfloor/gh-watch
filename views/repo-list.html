@@ -1,0 +1,11 @@
+<section class="repo-list-page" ng-controller="RepoListCtrl" ng-model="repoList">
+	<ol ng-if="!!repoList[0]">
+		<li ng-repeat="item in repoList">
+			<a ng-href="#/repos/{{item.full_name}}">
+				<span>{{item.name}}</span>
+			</a>
+		</li>
+	</ol>
+	<no-record ng-if="!!!repoList[0]" item-type="repos">
+</section>
+<go-home>

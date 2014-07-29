@@ -1,0 +1,29 @@
+<section class="search-page" ng-controller='SearchListCtrl'>
+	<div class="searchbar">
+		<select name="srh-type" id="srh_type" ng-model="srhType">
+			<option value="user">user</option>
+			<option value="repository">repository</option>
+		</select>
+		<input type="text" ng-model="keyword" placeholder="search for users or repositorys">
+	</div>
+	<div class="content">
+		<div ng-show="srhType=='user'" ng-model="users">
+			<ol>
+				<li ng-repeat="item in users">
+					<a ng-href="#/users/{{item.login}}">
+						<span>{{item.login}}</span>
+					</a>
+				</li>
+			</ol>
+		</div>
+		<div ng-show="srhType=='repository'" ng-model="repos">
+			<ol>
+				<li ng-repeat="item in repos">
+					<a ng-href="#/repos/{{item.full_name}}">
+						<span>{{item.full_name}}</span>
+					</a>
+				</li>
+			</ol>
+		</div>
+	</div>
+</section>

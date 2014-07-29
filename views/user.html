@@ -1,0 +1,37 @@
+<article class="user-page" ng-model="user" ng-controller='UserCtrl'>
+	<section ng-if="user.login">
+		<div class="info">
+			<figure class="avatar">
+				<a href="{{user.html_url}}" target="_blank" title="to his github page">
+					<img ng-src="{{user.avatar_url}}" alt="{{user.login}}">
+				</a>
+			</figure>
+			<h3>{{user.login}}</h3>
+			<a ng-href="{{user.blog}}" ng-if="user.blog" target="_blank">
+				<span>{{user.login}}'s blog</span>
+			</a>
+			<div class="follow" ng-controller="FollowListCtrl" ng-model="followList">
+				<a ng-href="#/users/{{user.login}}/follow/0" class="action">
+					<span>follower</span>
+					<br>
+					<strong>{{user.followers}}</strong>
+				</a>
+				<a ng-href="#/users/{{user.login}}/follow/1" class="action">
+					<span>following</span>
+					<br>
+					<strong>{{user.following}}</strong>
+				</a>
+			</div>
+		</div>
+		<section>
+			<div class="repos">
+				<a ng-href="#/users/{{user.login}}/repos">
+					<p>his repos({{user.public_repos}})</p>
+					<i class="blink fa fa-rebel" ng-click="showRepos(user.login)"></i>
+				</a>
+			</div>
+		</section>
+	</section>
+	<no-record ng-if="!user.login" item-type="user"/></no-record>
+</article>
+<go-home></go-home>
